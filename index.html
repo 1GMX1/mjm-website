@@ -1,12 +1,12 @@
 <!doctype html>
-
-<html>
+<html lang="en" dir="ltr">
     <head>
         <title>MJM video player</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" charset="utf-8">
         <link rel="shortcut icon" href="./icon.ico" charset="utf-8">
         <link rel="stylesheet" href="./styles.css">
         <script src="./scripts.js"></script>
+        <script src="./beTween.js"></script>
     </head>
     <body>
         <div class="main">
@@ -37,7 +37,6 @@
                 <div class="span-area">
                     <span>
                         <span>MJM player</span>
-                        <span class="app-version">Beta</span>
                     </span>
                 </div>
             </div>
@@ -73,8 +72,16 @@
                     </div>
                 </div>
                 <div class="download-area">
-                    <div tabindex="0" role="button" class="download-btn hidden">
-                        <span>Download app (soon)</span>
+                    <div>
+                        <div tabindex="0" role="button" class="download-btn hidden">
+                            <span>Download app (soon)</span>
+                        </div>
+                        <div class="download-btn-progress-text-area">
+                            <div>
+                                <div class="download-btn-progress"></div>
+                                <span class="download-btn-timer"></span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
