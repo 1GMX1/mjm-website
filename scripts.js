@@ -154,12 +154,14 @@ window.addEventListener('load', () => {
                 };
                 downloadBtn.classList.remove('hidden');
                 downloadBtnProgressTextArea.classList.add('download-btn-progress-text-area-hidden');
+                downloadBtn.addEventListener('click', makeDownloadLinkForApp, false);
                 downloadBtn.removeEventListener('mousedown', downloadBtnHidden, false);
             };
         })
         .on('complete', () => {
             isTweenCountDownDate = false;
         });
+        downloadBtn.removeEventListener('click', makeDownloadLinkForApp, false);
         downloadBtn.addEventListener('mousedown', downloadBtnHidden, false);
     }else if (dateDiff <= 0) {
         if (isTweenCountDownDate === true) {
@@ -168,6 +170,17 @@ window.addEventListener('load', () => {
         downloadBtn.classList.remove('hidden');
         downloadBtnProgressTextArea.classList.add('download-btn-progress-text-area-hidden');
         downloadBtn.removeEventListener('mousedown', downloadBtnHidden, false);
+        downloadBtn.addEventListener('click', makeDownloadLinkForApp, false);
+    };
+
+    function makeDownloadLinkForApp() {
+        const a = document.createElement('a');
+        a.href = 'https://github.com/1GMX1/mjm-website/releases/download/v0.0.1/MJM.player.Setup.0.0.1.exe';
+        a.download = 'MJM Setup 0.0.1.exe';
+        a.style.display = 'none';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
     };
 
     function downloadBtnHidden() {
